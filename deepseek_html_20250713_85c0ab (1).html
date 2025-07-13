@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Macherla Arun Kumar - Hospital Sales & Business Development Expert</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #005b96;
+            --secondary-color: #012749;
+            --accent-color: #ff7d00;
+            --text-color: #333333;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --font-heading: 'Montserrat', sans-serif;
+        }
+        
+        /* Color Scheme Options */
+        .theme-blue {
+            --primary-color: #005b96;
+            --secondary-color: #012749;
+            --accent-color: #ff7d00;
+        }
+        .theme-green {
+            --primary-color: #2e7d32;
+            --secondary-color: #1b5e20;
+            --accent-color: #ffab00;
+        }
+        .theme-purple {
+            --primary-color: #6a1b9a;
+            --secondary-color: #4a148c;
+            --accent-color: #ffd600;
+        }
+        
+        body {
+            font-family: var(--font-main);
+            line-height: 1.8;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--accent-color);
+        }
+        
+        header h1 {
+            font-family: var(--font-heading);
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        header h2 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+        }
+        
+        .header-quote {
+            font-style: italic;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        /* Contact Bar */
+        .contact-bar {
+            background-color: var(--secondary-color);
+            padding: 0.8rem 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .contact-bar a {
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s;
+        }
+        
+        .contact-bar a:hover {
+            color: var(--accent-color);
+        }
+        
+        /* Theme Selector */
+        .theme-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+            background: var(--white);
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .theme-selector h4 {
+            margin: 0 0 8px 0;
+            font-size: 0.9rem;
+        }
+        
+        .theme-options {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .theme-btn {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            border: 2px solid var(--white);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .theme-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .theme-btn.blue { background: #005b96; }
+        .theme-btn.green { background: #2e7d32; }
+        .theme-btn.purple { background: #6a1b9a; }
+        
+        /* Main Content Sections */
+        section {
+            padding: 3rem 0;
+            background-color: var(--white);
+            margin-bottom: 2rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            color: var(--primary-color);
+            display: inline-block;
+            margin: 0;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--accent-color);
+        }
+        
+        /* Summary Section */
+        #summary {
+            background-color: var(--light-bg);
+        }
+        
+        .summary-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        /* Experience Section */
+        .experience-item {
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed #ddd;
+        }
+        
+        .experience-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+        
+        .exp-header h3 {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin: 0;
+        }
+        
+        .exp-header h4 {
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+            margin: 0.3rem 0;
+            font-weight: 500;
+        }
+        
+        .exp-date {
+            color: #666;
+            font-style: italic;
+        }
+        
+        .exp-details ul {
+            padding-left: 20px;
+        }
+        
+        .exp-details li {
+            margin-bottom: 0.8rem;
+            position: relative;
+        }
+        
+        .exp-details li::before {
+            content: '▹';
+            position: absolute;
+            left: -20px;
+            color: var(--accent-color);
+        }
+        
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .skill-category {
+            background: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 5px;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+        
+        .skill-category ul {
+            padding-left: 20px;
+        }
+        
+        .skill-category li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Achievements Section */
+        #achievements {
+            background-color: var(--light-bg);
+        }
+        
+        .achievements-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .achievements-list li {
+            margin-bottom: 1.2rem;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .achievements-list li::before {
+            content: '★';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+        
+        /* Education Section */
+        .education-item {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .education-item p {
+            margin: 0.5rem 0;
+        }
+        
+        /* Contact Section */
+        #contact {
+            text-align: center;
+        }
+        
+        .contact-info {
+            display: inline-block;
+            text-align: left;
+        }
+        
+        .contact-info ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .contact-info li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .contact-info i {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            width: 25px;
+            text-align: center;
+        }
+        
+        .contact-info a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-info a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
+        
+        footer p {
+            margin: 0.3rem 0;
+            opacity: 0.8;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+            
+            header h2 {
+                font-size: 1.2rem;
+            }
+            
+            .contact-bar {
+                gap: 1rem;
+                padding: 0.8rem 1rem;
+            }
+            
+            .contact-bar a {
+                font-size: 0.9rem;
+            }
+            
+            .exp-header {
+                flex-direction: column;
+            }
+            
+            .exp-date {
+                margin-top: 0.3rem;
+            }
+        }
+    </style>
+</head>
+<body class="theme-blue">
+    <div class="theme-selector">
+        <h4>Color Theme</h4>
+        <div class="theme-options">
+            <div class="theme-btn blue" onclick="changeTheme('blue')" title="Blue Theme"></div>
+            <div class="theme-btn green" onclick="changeTheme('green')" title="Green Theme"></div>
+            <div class="theme-btn purple" onclick="changeTheme('purple')" title="Purple Theme"></div>
+        </div>
+    </div>
+    
+    <header>
+        <div class="container">
+            <h1>MACHERLA ARUN KUMAR</h1>
+            <h2>Hospital Sales & Business Development Manager</h2>
+            <p class="header-quote">"Driving growth through strategic partnerships and data-driven sales strategies in healthcare"</p>
+        </div>
+    </header>
+    
+    <div class="contact-bar">
+        <div class="container">
+            <a href="tel:+917331180766"><i class="fas fa-phone"></i> +91-7331180766</a>
+            <a href="mailto:arunkumar.macharta@gmail.com"><i class="fas fa-envelope"></i> arunkumar.macharta@gmail.com</a>
+            <a href="https://www.linkedin.com/in/arunkumar-macherla/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn Profile</a>
+            <a href="#"><i class="fas fa-map-marker-alt"></i> Hyderabad, Telangana</a>
+        </div>
+    </div>
+    
+    <main class="container">
+        <section id="summary">
+            <div class="section-title">
+                <h2>Professional Summary</h2>
+            </div>
+            <div class="summary-content">
+                <p>Dynamic and target-driven Sales & Business Development professional with 6+ years of experience in the healthcare and hospital sales domain, including leadership roles at Pristyn Care and Medgini. Proven expertise in hospital onboarding, key account management, sales strategy execution, and team leadership.</p>
+                <p>Adept at building long-term relationships with hospital administrators, driving promotional campaigns, and increasing product penetration in competitive healthcare markets.</p>
+            </div>
+        </section>
+        
+        <section id="experience">
+            <div class="section-title">
+                <h2>Professional Experience</h2>
+            </div>
+            
+            <div class="experience-item">
+                <div class="exp-header">
+                    <div>
+                        <h3>Medgini – Pharma Marketing, Hyderabad</h3>
+                        <h4>Sales & Business Development Manager</h4>
+                    </div>
+                    <div class="exp-date">Oct 2024 – Present</div>
+                </div>
+                <div class="exp-details">
+                    <ul>
+                        <li>Designed and launched localized campaigns for brands like Dolo, Zincovit, Omez, boosting prescription volume and PO bookings by 20%</li>
+                        <li>Implemented RCPA audits, driving focused HCP targeting and relationship management</li>
+                        <li>Rolled out chemist activation programs and managed POSM branding across 5000+ outlets</li>
+                        <li>Conducted CME events and promotional activities aligned with product lifecycle strategies</li>
+                        <li>Trained and mentored field sales team on doctor engagement techniques, compliance, and performance reporting</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="experience-item">
+                <div class="exp-header">
+                    <div>
+                        <h3>Pristyn Care, Vijayawada</h3>
+                        <h4>Business Development Manager</h4>
+                    </div>
+                    <div class="exp-date">Jan 2022 – Jul 2024</div>
+                </div>
+                <div class="exp-details">
+                    <ul>
+                        <li>Spearheaded hospital onboarding and strategic partnerships across Vijayawada, improving regional patient acquisition by 35%</li>
+                        <li>Cultivated strong relationships with hospital procurement teams, administrators, and surgery coordinators</li>
+                        <li>Developed and executed territory-specific sales plans, aligning with monthly and quarterly targets</li>
+                        <li>Collaborated with internal teams to track compliance, documentation, and client contract closures</li>
+                        <li>Facilitated training programs for hospital staff on service offerings and patient conversion strategies</li>
+                        <li>Conducted competitive benchmarking and market intelligence to refine positioning and pricing</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="experience-item">
+                <div class="exp-header">
+                    <div>
+                        <h3>Lince Soft IT Solutions, Hyderabad</h3>
+                        <h4>Business Development Manager</h4>
+                    </div>
+                    <div class="exp-date">Mar 2017 – Jan 2022</div>
+                </div>
+                <div class="exp-details">
+                    <ul>
+                        <li>Led client acquisition campaigns and structured B2B pitch decks for healthcare and IT verticals</li>
+                        <li>Strengthened client retention through consultative sales approaches and personalized outreach strategies</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section id="skills">
+            <div class="section-title">
+                <h2>Core Competencies</h2>
+            </div>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Sales & Business Development</h3>
+                    <ul>
+                        <li>Hospital & Clinic Sales Development</li>
+                        <li>Key Account Management</li>
+                        <li>Contract Negotiation</li>
+                        <li>Sales Forecasting & Target Planning</li>
+                        <li>CRM & Sales Pipeline Tracking</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Healthcare Expertise</h3>
+                    <ul>
+                        <li>Healthcare Procurement & Compliance</li>
+                        <li>RCPA & Prescription Generation</li>
+                        <li>CME/Event Management</li>
+                        <li>Market Intelligence & Competitor Mapping</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Leadership & Management</h3>
+                    <ul>
+                        <li>Team Leadership & Performance Coaching</li>
+                        <li>Sales Team Training</li>
+                        <li>Stakeholder Engagement</li>
+                        <li>Strategic Planning</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section id="achievements">
+            <div class="section-title">
+                <h2>Key Achievements</h2>
+            </div>
+            <div class="achievements-list">
+                <ul>
+                    <li>Onboarded 15+ hospitals in Andhra Pradesh within 6 months, meeting revenue goals 2 quarters ahead of target</li>
+                    <li>Reduced hospital partner churn by 25% via structured engagement and compliance check-ins</li>
+                    <li>Surpassed quarterly revenue targets by 20% consecutively for 3 quarters at Pristyn Care</li>
+                    <li>Boosted prescription volume and PO bookings by 20% through localized campaigns at Medgini</li>
+                    <li>Increased regional patient acquisition by 35% through strategic hospital partnerships</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="education">
+            <div class="section-title">
+                <h2>Education & Languages</h2>
+            </div>
+            <div class="education-item">
+                <p><strong>Bachelor of Technology (B.Tech) – Computer Science Engineering</strong></p>
+                <p>Holy Mary Institute of Science & Technology, Ranga Reddy (2013)</p>
+            </div>
+            <div class="education-item">
+                <p><strong>Languages:</strong> English (Professional), Hindi (Conversational), Telugu (Native)</p>
+            </div>
+        </section>
+        
+        <section id="contact">
+            <div class="section-title">
+                <h2>Contact Me</h2>
+            </div>
+            <div class="contact-info">
+                <ul>
+                    <li><i class="fas fa-envelope"></i> <a href="mailto:arunkumar.macharta@gmail.com">arunkumar.macharta@gmail.com</a></li>
+                    <li><i class="fas fa-phone"></i> <a href="tel:+917331180766">+91-7331180766</a></li>
+                    <li><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/arunkumar-macherla/" target="_blank">linkedin.com/in/arunkumar-macherla</a></li>
+                    <li><i class="fas fa-map-marker-alt"></i> 1-11-44/1, Weavers Colony, Jangaan, Telangana. Pin code: 506167</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Macherla Arun Kumar. All rights reserved.</p>
+            <p>Last updated: July 2024</p>
+        </div>
+    </footer>
+    
+    <script>
+        function changeTheme(theme) {
+            document.body.className = 'theme-' + theme;
+        }
+    </script>
+</body>
+</html>
